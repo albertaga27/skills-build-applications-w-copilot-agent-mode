@@ -1,4 +1,4 @@
-import { connectDatabase, disconnectDatabase } from '../database';
+import { connectDatabase, disconnectDatabase } from '../config/database';
 import { Activity, Leaderboard, Team, User, Workout } from '../models';
 
 async function seedDatabase(): Promise<void> {

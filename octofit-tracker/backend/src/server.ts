@@ -1,6 +1,6 @@
 import express from 'express';
 import { serverConfig } from './config';
-import { connectDatabase } from './database';
+import { connectDatabase } from './config/database';
 import { createApiRouter } from './routes';
 
 const app = express();
