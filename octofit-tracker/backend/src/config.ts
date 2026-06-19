@@ -7,6 +7,5 @@ export const apiBaseUrl = codespaceName
 
 export const serverConfig = {
   port,
-  mongoUri: process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/octofit_db',
   apiBaseUrl,
 };

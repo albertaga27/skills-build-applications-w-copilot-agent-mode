@@ -1,6 +1,6 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import { serverConfig } from './config';
+import { connectDatabase } from './database';
 import { createApiRouter } from './routes';
 
 const app = express();
@@ -14,7 +14,7 @@ app.use((error: unknown, _req: express.Request, res: express.Response, _next: ex
 });
 
 async function startServer(): Promise<void> {
-  await mongoose.connect(serverConfig.mongoUri);
+  await connectDatabase();
   app.listen(serverConfig.port, () => {
     console.log(`OctoFit backend listening on port ${serverConfig.port}`);
     console.log(`OctoFit API available at ${serverConfig.apiBaseUrl}`);
