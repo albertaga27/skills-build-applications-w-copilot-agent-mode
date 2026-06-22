@@ -1,8 +1,11 @@
 import DataView from './CollectionView'
-import { useCollection } from './collectionData'
+import { useCollectionUrl } from './collectionData'
 
 function Teams({ apiBaseUrl }) {
-  const collection = useCollection(apiBaseUrl, 'teams')
+  const teamsUrl = import.meta.env.VITE_CODESPACE_NAME
+    ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/teams/`
+    : `${apiBaseUrl}/teams/`
+  const collection = useCollectionUrl(teamsUrl)
 
   return (
     <DataView

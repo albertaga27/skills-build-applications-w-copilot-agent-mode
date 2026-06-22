@@ -16,7 +16,7 @@ export function formatValue(value) {
   return value || 'Not set'
 }
 
-export function useCollection(apiBaseUrl, resourceName) {
+export function useCollectionUrl(collectionUrl) {
   const [items, setItems] = useState([])
   const [status, setStatus] = useState('loading')
   const [error, setError] = useState('')
@@ -27,7 +27,7 @@ export function useCollection(apiBaseUrl, resourceName) {
     async function loadItems() {
       try {
         setStatus('loading')
-        const response = await fetch(`${apiBaseUrl}/${resourceName}/`, { signal: controller.signal })
+        const response = await fetch(collectionUrl, { signal: controller.signal })
 
         if (!response.ok) {
           throw new Error(`Request failed with status ${response.status}`)
@@ -49,7 +49,11 @@ export function useCollection(apiBaseUrl, resourceName) {
     loadItems()
 
     return () => controller.abort()
-  }, [apiBaseUrl, resourceName])
+  }, [collectionUrl])
 
   return { items, status, error }
+}
+
+export function useCollection(apiBaseUrl, resourceName) {
+  return useCollectionUrl(`${apiBaseUrl}/${resourceName}/`)
 }

@@ -1,8 +1,11 @@
 import DataView from './CollectionView'
-import { useCollection } from './collectionData'
+import { useCollectionUrl } from './collectionData'
 
 function Leaderboard({ apiBaseUrl }) {
-  const collection = useCollection(apiBaseUrl, 'leaderboard')
+  const leaderboardUrl = import.meta.env.VITE_CODESPACE_NAME
+    ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/`
+    : `${apiBaseUrl}/leaderboard/`
+  const collection = useCollectionUrl(leaderboardUrl)
 
   return (
     <DataView
