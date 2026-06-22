@@ -1,0 +1,154 @@
+.app-shell {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  min-height: 100svh;
+}
+
+.sidebar {
+  border-right: 1px solid var(--border);
+  padding: 24px;
+  background: var(--surface);
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.brand-lockup img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.brand-lockup h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.nav-link {
+  border-radius: 6px;
+  color: var(--text);
+  font-weight: 650;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: var(--accent-bg);
+  color: var(--text-h);
+}
+
+.content-panel {
+  min-width: 0;
+  padding: 32px;
+}
+
+.api-banner {
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding: 12px 14px;
+}
+
+.api-banner span,
+.count-pill {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.api-banner code {
+  overflow-wrap: anywhere;
+}
+
+.data-surface {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.surface-heading {
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 24px;
+}
+
+.surface-heading h1 {
+  font-size: 30px;
+  margin: 4px 0 0;
+}
+
+.count-pill {
+  background: var(--accent-bg);
+  border-radius: 999px;
+  color: var(--accent);
+  padding: 6px 10px;
+}
+
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--text);
+  --bs-table-hover-bg: var(--surface);
+  --bs-table-hover-color: var(--text-h);
+}
+
+.table th {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.table td,
+.table th {
+  border-color: var(--border);
+  padding: 14px 16px;
+}
+
+.surface-note {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: left;
+}
+
+@media (max-width: 860px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-bottom: 1px solid var(--border);
+    border-right: none;
+  }
+
+  .content-panel {
+    padding: 20px;
+  }
+
+  .api-banner,
+  .surface-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
